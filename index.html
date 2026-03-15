@@ -21,20 +21,18 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-
-  // 建立 FamilyTree
   var family = new FamilyTree(document.getElementById("tree"), {
     nodeBinding: { field_0: "name", field_1: "img" },
     editForm: { generateElementsFromFields: false },
-    enableDragDrop: true, // 可拖曳節點
-    enableZoom: true,     // 可縮放
+    enableDragDrop: true,
+    enableZoom: true,
     nodeTemplate: function(person) {
       var imgHTML = person.img ? '<img src="'+person.img+'" />' : '';
-      return imgHTML + '<div>'+person.name+'</div>';
+      var nameHTML = '<div>'+person.name+'</div>';
+      return '<div class="ft-node">'+ imgHTML + nameHTML + '</div>';
     }
   });
 
-  // 從外部 JSON 載入資料
   fetch('family.json')
     .then(res => res.json())
     .then(data => {
