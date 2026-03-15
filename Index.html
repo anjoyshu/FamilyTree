@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="https://cdn.balkan.app/familytree2.js"></script>
+
+</head>
+
+<body>
+
+<div id="tree"></div>
+
+<script>
+
+var family = new FamilyTree(document.getElementById("tree"), {
+    nodeBinding: {
+        field_0: "name",
+        img_0: "photo"
+    }
+});
+
+family.load([
+{ id: 1, name: "爺爺"},
+{ id: 2, name: "奶奶"},
+{ id: 3, pid: 1, mid: 2, name: "爸爸"},
+{ id: 4, name: "媽媽"},
+{ id: 5, pid: 3, mid: 4, name: "我"}
+]);
+
+</script>
+
+</body>
+</html>
