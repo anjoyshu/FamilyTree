@@ -1,47 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<title>Family Tree</title>
+  <meta charset="UTF-8">
+  <title>Family Tree 系統</title>
 
-<script src="https://cdn.balkan.app/familytree2.js"></script>
+  <!-- FamilyTree 官方 CDN -->
+  <script src="https://balkan.app/js/familytree.bundle.js"></script>
 
-<style>
-#tree{
-width:100%;
-height:700px;
-}
-</style>
+  <!-- 樣式 -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
 
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+      color: #333;
+    }
+
+    #tree {
+      width: 100%;
+      height: 700px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+
+    /* 節點樣式 */
+    .ft-node {
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: 6px;
+      background-color: #e0f7fa;
+      border: 1px solid #26c6da;
+      color: #00796b;
+      text-align: center;
+    }
+  </style>
 </head>
-
 <body>
 
-<div id="tree"></div>
+  <h1>我的家族樹</h1>
+  <div id="tree"></div>
 
-<script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // 建立 FamilyTree
+      var family = new FamilyTree(document.getElementById("tree"), {
+        nodeBinding: {
+          field_0: "name"
+        },
+        editForm: {
+          // 不需要編輯表單，可先關閉
+          generateElementsFromFields: false
+        }
+      });
 
-document.addEventListener("DOMContentLoaded", function(){
-
-var family = new FamilyTree(document.getElementById("tree"), {
-
-nodeBinding: {
-field_0: "name"
-}
-
-});
-
-family.load([
-{ id: 1, name: "Grandfather" },
-{ id: 2, name: "Grandmother" },
-{ id: 3, pid: 1, mid: 2, name: "Father" },
-{ id: 4, name: "Mother" },
-{ id: 5, pid: 3, mid: 4, name: "Me" }
-]);
-
-});
-
-</script>
+      // 範例家族資料
+      family.load([
+        { id: 1, name: "祖父" },
+        { id: 2, name: "祖母" },
+        { id: 3, pid: 1, mid: 2, name: "父親" },
+        { id: 4, name: "母親" },
+        { id: 5, pid: 3, mid: 4, name: "我" },
+        { id: 6, pid: 3, mid: 4, name: "兄弟" },
+        { id: 7, pid: 3, mid: 4, name: "姐妹" }
+      ]);
+    });
+  </script>
 
 </body>
 </html>
