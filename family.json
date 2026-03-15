@@ -1,0 +1,11 @@
+[
+  { "id": 1, "name": "祖父", "img": "images/grandfather.jpg", "birthday": "1940-01-01", "note": "喜歡種花" },
+  { "id": 2, "name": "祖母", "img": "images/grandmother.jpg", "birthday": "1942-03-12", "note": "擅長烹飪" },
+  { "id": 3, "pid": 1, "mid": 2, "name": "父親", "img": "images/father.jpg", "birthday": "1965-05-10" },
+  { "id": 8, "name": "外祖父", "img": "images/grandfather.jpg" },
+  { "id": 9, "name": "外祖母", "img": "images/grandmother.jpg" },
+  { "id": 4, "pid": 8, "mid": 9, "name": "母親", "img": "images/mother.jpg", "birthday": "1967-07-20" },
+  { "id": 5, "pid": 3, "mid": 4, "name": "我", "img": "images/me.jpg", "birthday": "1990-02-15" },
+  { "id": 6, "pid": 3, "mid": 4, "name": "兄弟" },
+  { "id": 7, "pid": 3, "mid": 4, "name": "姐妹" }
+]
